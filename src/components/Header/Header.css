@@ -23,6 +23,7 @@
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
+    cursor: pointer;
   }
   .logo-icon{
         background-position: -191px 0;
@@ -47,8 +48,8 @@
     background-position: -217px 0;
 }
 .add{
-    background-position: -104px -141px;
+    background-position: -103px -141px;
 }
 .remove{
-    background-position: -217px -30px;
+    background-position: -217px -26px;
 }
