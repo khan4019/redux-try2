@@ -21,8 +21,8 @@ class Feed extends Component {
                 <h1>This is Feed</h1>
                 {
                     this.state.posts.map( 
-                        post => 
-                    <Photo key={post.id} post={post}>
+                        (post, i) => 
+                    <Photo key={post.id} i= {i} post={post}>
                         </Photo>)
                 }
             </div>
