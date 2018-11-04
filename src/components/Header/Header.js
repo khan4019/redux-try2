@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 class Header extends Component {
     render() {
         const cart = this.props.cart;
-
+        console.log('header', cart.length);
         const cartSizeStyle ={
             color:'#e94949',
             fontWeight:700,
@@ -32,8 +32,8 @@ class Header extends Component {
                             className={ `sprite icon ' + ${cart.length ? 'heart_filled' : 'heart_empty'}`}
                             >
                         </div>
-                        <sup style={cartSizeStyle}>{cart.length}</sup>
                     </Link>
+                    <sup style={cartSizeStyle}>{cart.length}</sup>
                 </div>
             </div>
         );

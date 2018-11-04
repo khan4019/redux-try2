@@ -28,13 +28,13 @@ class Feed extends Component {
 
     addToCart = (id) =>{
         const {cart, posts} = this.state;
-        let newCart;
-        if(cart.includes(id)){
-            newCart = cart.filter( item => item !==id);
-        }
-        else {
-            newCart  =[...cart, id];
-        }
+        // let newCart;
+        // if(cart.includes(id)){
+        //     newCart = cart.filter( item => item !==id);
+        // }
+        // else {
+        //     newCart  =[...cart, id];
+        // }
 
         // update posts
         const newPosts = posts.map(post =>{
@@ -45,13 +45,15 @@ class Feed extends Component {
         })
         
         // set state
-        this.setState({cart:newCart, posts:newPosts});
+        this.setState({ posts:newPosts});
     }
     
     render() {
+        const {cart, toggleAddToCart} = this.props;
+        console.log('cart in feed', this.props.cart);
         return (
             <div>
-                <Header cart={this.state.cart}></Header>
+                <Header cart={cart.cart}></Header>
                 {
                     this.state.posts.map( 
                         (post, i) => 
@@ -59,7 +61,7 @@ class Feed extends Component {
                         key={post.id} 
                         i = {i} 
                         post={post} 
-                        addToCart={this.addToCart}
+                        addToCart={this.props.toggleAddToCart}
                         >
                     </Photo>)
                 }

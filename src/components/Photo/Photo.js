@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { toggleToCart } from '../../actions/actions';
 
 // Learning points
 // 1. prop types
@@ -32,15 +34,15 @@ class Photo extends Component {
     
     render() {
         const {post} = this.props;
-        console.log(post.liked);
+        // console.log('in photo', this.props);
         return (
             <div>
                 <h1>{this.props.index+1}</h1>
-                <img src={post.url} alt=""/>
+                <img src={post.thumbnailUrl} alt=""/>
                 <div className="icon-container">
                     <div 
                         className={ `sprite icon ' + ${post.liked ? 'heart_filled' : 'heart_empty'}`}
-                        onClick={() => this.props.addToCart(post.id)}
+                        onClick={() => this.props.dispatch(toggleToCart(post.id))}
                     ></div>
                     <div className="sprite icon comment"></div>
                     <div 
@@ -65,5 +67,7 @@ Photo.propTypes = {
 Photo.defaultProps = {
     index:100
 }
+
+Photo = connect()(Photo);
 
 export default Photo;
